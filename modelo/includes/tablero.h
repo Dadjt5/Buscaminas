@@ -19,8 +19,12 @@ public:
     int getFilas() const;
     int getColumnas() const;
     int getMinas() const;
-    void colocarMinas();
+    void colocarMinas(int fila, int columna);
     void imprimirTablero() const;
+    bool click(int i, int j);
+    bool estaRevelada(int i, int j) const;
+    bool esBomba(int i, int j) const;
+    int getNumero(int i, int j) const;
 };
 
 #endif
