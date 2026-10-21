@@ -8,7 +8,7 @@ private:
     bool revelada;
 
 public:
-    Casilla(int numero, int bomba);
+    Casilla();
 
     void aumentarNumero(int cantidad);
     int getNumero() const;

@@ -1,7 +1,8 @@
+#include <iostream>
 #include <random>
 
-#include "Tablero.h"
-#include "Casilla.h"
+#include "../includes/tablero.h"
+#include "../includes/casilla.h"
 
 Tablero::Tablero(int filas, int columnas, int minas)
         : filas(filas),
@@ -50,13 +51,13 @@ void Tablero::colocarMinas() {
 }
 
 void Tablero::recalcularNumeros(int i, int j) {
-    if (i < 0 || i >= filas || j < 0 || j >= columnas) {
+    if (i < 0 && i >= filas && j < 0 && j >= columnas) {
         return;
     }
 
     for (int x = -1; x < 2; x++) {
         for (int y = -1; y < 2; y++) {
-            if (i+x >= 0 || i+x < filas || j+y >= 0 || j+y < columnas) {
+            if (i+x >= 0 && i+x < filas && j+y >= 0 && j+y < columnas) {
                 if (!casillas[i+x][i+j].esBomba()) {
                     casillas[i+x][i+j].aumentarNumero(1);
                 }
@@ -67,8 +68,14 @@ void Tablero::recalcularNumeros(int i, int j) {
 
 void Tablero::imprimirTablero() const {
     for (int i = 0; i < filas; i++) {
+        std::cout << "|";
         for (int j = 0; j < columnas; j++) {
-            
+            if (casillas[i][j].esBomba()) {
+                std::cout << "b";
+            } else {
+                std::cout << casillas[i][j].getNumero();
+            }
         }
+        std::cout << std::endl;
     }
 }

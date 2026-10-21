@@ -1,7 +1,6 @@
-#include "Casilla.h"
+#include "../includes/casilla.h"
 
-Casilla::Casilla()
-    : revelada(false), bomba(false), numero(0) {}
+Casilla::Casilla(): revelada(false), bomba(false), numero(0) {}
 
 
 void Casilla::aumentarNumero(int cantidad) {

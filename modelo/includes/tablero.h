@@ -1,12 +1,15 @@
 #ifndef TABLERO_H
 #define TABLERO_H
 
+#include <vector>
+#include "casilla.h"
+
 class Tablero {
 private:
     int filas;
     int columnas;
     int minas;
-    std::vector<Casilla> casillas;
+    std::vector<std::vector<Casilla>> casillas;
 
     void recalcularNumeros(int i, int j);
 
