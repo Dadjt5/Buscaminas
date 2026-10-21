@@ -51,15 +51,19 @@ void Tablero::colocarMinas() {
 }
 
 void Tablero::recalcularNumeros(int i, int j) {
-    if (i < 0 && i >= filas && j < 0 && j >= columnas) {
+    if (i < 0 || i >= filas || j < 0 || j >= columnas) {
         return;
     }
 
     for (int x = -1; x < 2; x++) {
         for (int y = -1; y < 2; y++) {
             if (i+x >= 0 && i+x < filas && j+y >= 0 && j+y < columnas) {
-                if (!casillas[i+x][i+j].esBomba()) {
-                    casillas[i+x][i+j].aumentarNumero(1);
+                if (x == 0 && y == 0) {
+                    continue;
+                }
+
+                if (!casillas[i+x][j+y].esBomba()) {
+                    casillas[i+x][j+y].aumentarNumero(1);
                 }
             }
         }
@@ -67,13 +71,19 @@ void Tablero::recalcularNumeros(int i, int j) {
 }
 
 void Tablero::imprimirTablero() const {
+    std::cout << " ";
+    for (int e = 0; e < columnas*2-1; e++) {
+        std::cout << "_";
+    }
+
+    std::cout << std::endl;
     for (int i = 0; i < filas; i++) {
         std::cout << "|";
         for (int j = 0; j < columnas; j++) {
             if (casillas[i][j].esBomba()) {
-                std::cout << "b";
+                std::cout << "b ";
             } else {
-                std::cout << casillas[i][j].getNumero();
+                std::cout << casillas[i][j].getNumero() << " ";
             }
         }
         std::cout << std::endl;
