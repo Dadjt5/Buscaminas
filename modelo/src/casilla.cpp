@@ -1,6 +1,6 @@
 #include "../includes/casilla.h"
 
-Casilla::Casilla(): revelada(false), bomba(false), numero(0) {}
+Casilla::Casilla(): revelada(false), bomba(false), numero(0), bloqueada(false) {}
 
 
 void Casilla::aumentarNumero(int cantidad) {
@@ -25,4 +25,12 @@ void Casilla::setRevelada(bool revelada) {
 
 bool Casilla::esRevelada() const {
     return revelada;
+}
+
+void Casilla::setBloqueada(bool bloqueada) {
+    this->bloqueada = bloqueada;
+}
+
+bool Casilla::esBloqueada() const {
+    return bloqueada;
 }

@@ -59,3 +59,27 @@ bool Sistema::esBomba(int i, int j) const {
 int Sistema::getNumero(int i, int j) const {
     return tablero != nullptr ? tablero->getNumero(i, j) : 0;
 }
+
+bool Sistema::esBloqueada(int i, int j) const {
+    if (tablero == nullptr) {
+        return false;
+    }
+
+    return tablero->esBloqueada(i, j);
+}
+
+void Sistema::setBloqueada(int i, int j, bool bloqueada) {
+    if (tablero == nullptr) {
+        return;
+    }
+
+    tablero->setBloqueada(i, j, bloqueada);
+}
+
+void Sistema::reiniciar() {
+    delete tablero;
+    tablero = nullptr;
+
+    terminada = false;
+    descubiertas = 0;
+}

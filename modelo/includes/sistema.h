@@ -19,6 +19,9 @@ public:
     bool estaRevelada(int i, int j) const;
     bool esBomba(int i, int j) const;
     int getNumero(int i, int j) const;
+    bool esBloqueada(int i, int j) const;
+    void setBloqueada(int i, int j, bool bloqueada);
+    void reiniciar();
 };
 
 #endif

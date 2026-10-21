@@ -128,3 +128,19 @@ void Tablero::imprimirTablero() const {
         std::cout << std::endl;
     }
 }
+
+bool Tablero::esBloqueada(int i, int j) const {
+    if (i < 0 || i >= filas || j < 0 || j >= columnas) {
+        return false;
+    }
+
+    return casillas[i][j].esBloqueada();
+}
+
+void Tablero::setBloqueada(int i, int j, bool bloqueada) {
+    if (i < 0 || i >= filas || j < 0 || j >= columnas) {
+        return;
+    }
+
+    casillas[i][j].setBloqueada(bloqueada);
+}

@@ -6,6 +6,7 @@ private:
     int numero;
     bool bomba;
     bool revelada;
+    bool bloqueada;
 
 public:
     Casilla();
@@ -18,6 +19,9 @@ public:
 
     void setRevelada(bool revelada);
     bool esRevelada() const;
+
+    void setBloqueada(bool bloqueada);
+    bool esBloqueada() const;
 };
 
 #endif
